@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-scroll';
+import { NavLink } from 'react-router-dom';
 import ScrollProgress from './ScrollProgress';
 
 const Layout = ({ children }) => {
@@ -7,66 +7,43 @@ const Layout = ({ children }) => {
         <div className="layout">
             <ScrollProgress />
             <nav className="navbar">
-                <Link
-                    to="home"
-                    smooth={true}
-                    duration={500}
-                    spy={true}
-                    activeClass="active"
-                    className="nav-link"
+                <NavLink
+                    to="/"
+                    end
+                    className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
                 >
                     Home
-                </Link>
-                <Link
-                    to="about"
-                    smooth={true}
-                    duration={500}
-                    spy={true}
-                    activeClass="active"
-                    className="nav-link"
+                </NavLink>
+                <NavLink
+                    to="/about"
+                    className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
                 >
                     About
-                </Link>
-                <Link
-                    to="skills"
-                    smooth={true}
-                    duration={500}
-                    spy={true}
-                    activeClass="active"
-                    className="nav-link"
+                </NavLink>
+                <NavLink
+                    to="/skills"
+                    className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
                 >
                     Skills
-                </Link>
-                <Link
-                    to="projects"
-                    smooth={true}
-                    duration={500}
-                    spy={true}
-                    activeClass="active"
-                    className="nav-link"
+                </NavLink>
+                <NavLink
+                    to="/projects"
+                    className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
                 >
                     Projects
-                </Link>
-                <Link
-                    to="certificates"
-                    smooth={true}
-                    duration={500}
-                    spy={true}
-                    activeClass="active"
-                    className="nav-link"
+                </NavLink>
+                <NavLink
+                    to="/certificates"
+                    className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
                 >
                     Certificates
-                </Link>
-                <Link
-                    to="contact"
-                    smooth={true}
-                    duration={500}
-                    spy={true}
-                    activeClass="active"
-                    className="nav-link"
+                </NavLink>
+                <NavLink
+                    to="/contact"
+                    className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
                 >
                     Contact
-                </Link>
+                </NavLink>
             </nav>
             <main>{children}</main>
             <footer className="footer">

@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import ScrollToTop from './components/ScrollToTop'
 import Layout from './components/Layout'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -40,13 +42,16 @@ function App() {
       <Loader loaded={!loading} />
       <div className={`app-content ${loading ? 'hidden' : 'visible'}`} style={{ opacity: loading ? 0 : 1, transition: 'opacity 1s ease-in-out' }}>
         <Cursor />
+        <ScrollToTop />
         <Layout>
-          <section id="home"><Hero /></section>
-          <section id="about"><About /></section>
-          <section id="skills"><Skills /></section>
-          <section id="projects"><Projects /></section>
-          <section id="certificates"><Certificates /></section>
-          <section id="contact"><Contact /></section>
+          <Routes>
+            <Route path="/" element={<Hero />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/certificates" element={<Certificates />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
         </Layout>
       </div>
     </>
