@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import Modal from './Modal';
 
 const Certificates = () => {
@@ -99,31 +99,26 @@ const Certificates = () => {
 };
 
 const styles = {
-    // Keep remaining static styles
+    // Responsive container/grid logic moved to index.css classes
     heading: {
         fontSize: '3rem',
-        color: 'var(--text-color)',
+        color: '#fff',
         marginBottom: '50px',
         textAlign: 'center',
         fontWeight: 'bold'
     },
     card: {
-        background: 'var(--card-bg)',
+        background: '#050505',
         borderRadius: '12px',
         padding: '30px',
-        border: '1px solid var(--border-color)',
+        border: '1px solid #333',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
         minHeight: '350px',
         position: 'relative',
-        boxShadow: '0 4px 20px var(--shadow-color)',
-        transition: 'transform 0.3s ease, border-color 0.3s ease',
-        userSelect: 'none',
-        WebkitUserSelect: 'none',
-        MozUserSelect: 'none',
-        outline: 'none',
-        WebkitTapHighlightColor: 'transparent'
+        boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
+        transition: 'transform 0.3s ease, border-color 0.3s ease'
     },
     cardHeader: {
         display: 'flex',
@@ -138,7 +133,7 @@ const styles = {
         fontWeight: 'bold'
     },
     certId: {
-        color: 'var(--text-muted)',
+        color: '#666',
         fontSize: '0.8rem',
         fontFamily: 'monospace'
     },
@@ -151,25 +146,25 @@ const styles = {
         gap: '10px'
     },
     smallText: {
-        color: 'var(--text-muted)',
+        color: '#888',
         fontSize: '0.9rem',
         margin: 0
     },
     recipientName: {
-        color: 'var(--text-color)',
+        color: '#fff',
         fontSize: '1.8rem',
         margin: '5px 0',
         fontWeight: 'bold',
         textTransform: 'capitalize'
     },
     courseTitle: {
-        color: 'var(--text-color)',
+        color: '#fff',
         fontSize: '1.5rem',
         margin: '5px 0',
         fontWeight: '600'
     },
     dateText: {
-        color: 'var(--text-disabled)',
+        color: '#666',
         fontSize: '0.9rem',
         marginTop: '15px'
     },
