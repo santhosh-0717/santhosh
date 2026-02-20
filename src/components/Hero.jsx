@@ -164,7 +164,7 @@ const Hero = () => {
                     I'm <AnimatedLetters strArray={nameArray} idx={15} />, <br />
                     <Typewriter texts={['Full Stack Developer', 'MERN Stack Developer', 'React Developer']} />
                 </h1>
-                <p style={{ color: '#888', marginTop: '20px', marginBottom: '30px' }} className="animate-fade-up delay-2">React / Express / Node.js</p>
+                <p style={{ color: 'var(--text-muted)', marginTop: '20px', marginBottom: '30px' }} className="animate-fade-up delay-2">React / Express / Node.js</p>
 
                 <div className="social-links animate-fade-up delay-3">
                     <a href="https://github.com/Santhosh-2005" target="_blank" rel="noopener noreferrer" className="social-icon">

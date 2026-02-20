@@ -4,40 +4,31 @@ const Projects = () => {
     // Hardcoded data with direct links
     const projects = [
         {
-            id: 1,
-            title: "E-Commerce Platform",
-            description: "A full-featured online store with cart and checkout functionality.",
-            tech: ["React", "Node.js", "MongoDB", "Stripe"],
-            image: "https://via.placeholder.com/400x250?text=E-Commerce",
-            demoLink: "#",
-            repoLink: "#"
-        },
-        {
             id: 2,
-            title: "Portfolio Website",
+            title: "student Form",
             description: "Personal portfolio to showcase skills and projects.",
             tech: ["React", "CSS3", "Vite"],
-            image: "https://via.placeholder.com/400x250?text=Portfolio",
-            demoLink: "#",
-            repoLink: "#"
+            image: "https://screenshots.codesandbox.io/wkrncj/482.png",
+            demoLink: "https://santhosh-0717.github.io/student/",
+            repoLink: "https://github.com/santhosh-0717/student"
         },
         {
             id: 3,
             title: "Task Management App",
             description: "Kanban-style task manager for teams.",
             tech: ["Vue.js", "Firebase", "Tailwind"],
-            image: "https://via.placeholder.com/400x250?text=Task+App",
-            demoLink: "#",
-            repoLink: "#"
+            image: "https://www.livemint.com/lm-img/img/2023/03/29/600x338/Disney_Hotstar_1680055435670_1680055456705_1680055456705.png",
+            demoLink: "https://santhosh-0717.github.io/clone/",
+            repoLink: "https://github.com/santhosh-0717/clone"
         },
         {
             id: 32,
             title: "student-registration-form",
             description: "Kanban-style task manager for teams.",
             tech: ["html", "css", "javascript"],
-            image: "",
-            demoLink: "https://santhosh-0717.github.io/student/",
-            repoLink: "https://github.com/santhosh-0717/student"
+            image: "https://static.vecteezy.com/system/resources/previews/029/136/188/non_2x/scientific-calculator-calculator-online-google-calculator-percentage-calculator-vector.jpg",
+            demoLink: "https://santhosh-0717.github.io/calculator/",
+            repoLink: "https://github.com/santhosh-0717/calculator"
         }
     ];
 
@@ -82,7 +73,7 @@ const styles = {
     },
     heading: {
         fontSize: '3rem',
-        color: '#fff',
+        color: 'var(--text-color)',
         marginBottom: '50px',
         textAlign: 'center',
         fontWeight: 'bold'
@@ -95,13 +86,13 @@ const styles = {
         margin: '0 auto'
     },
     card: {
-        background: '#050505',
+        background: 'var(--card-bg)',
         borderRadius: '12px',
         overflow: 'hidden',
-        border: '1px solid #333',
+        border: '1px solid var(--border-color)',
         display: 'flex',
         flexDirection: 'column',
-        boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
+        boxShadow: '0 4px 20px var(--shadow-color)',
         transition: 'transform 0.3s ease, border-color 0.3s ease',
         height: '100%'
     },
@@ -110,7 +101,7 @@ const styles = {
         width: '100%',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        borderBottom: '1px solid #333'
+        borderBottom: '1px solid var(--border-color)'
     },
     content: {
         padding: '25px',
@@ -119,13 +110,13 @@ const styles = {
         flex: 1
     },
     title: {
-        color: '#fff',
+        color: 'var(--text-color)',
         fontSize: '1.5rem',
         margin: '0 0 10px 0',
         fontWeight: '600'
     },
     description: {
-        color: '#aaa',
+        color: 'var(--text-secondary)',
         fontSize: '0.95rem',
         lineHeight: '1.5',
         marginBottom: '20px',
@@ -138,12 +129,13 @@ const styles = {
         marginBottom: '25px'
     },
     tech: {
-        background: 'rgba(255, 255, 255, 0.1)',
+        background: 'var(--bg-secondary)',
         color: 'var(--primary-color)',
         padding: '4px 10px',
         borderRadius: '15px',
         fontSize: '0.8rem',
-        fontWeight: '500'
+        fontWeight: '500',
+        border: '1px solid var(--border-color)'
     },
     links: {
         display: 'flex',

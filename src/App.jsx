@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
-import ScrollToTop from './components/ScrollToTop'
+
 import Layout from './components/Layout'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -11,10 +10,12 @@ import Contact from './components/Contact'
 import Cursor from './components/Cursor'
 import Loader from './components/Loader'
 import Particles from './components/Particles'
+import ScrollReveal from './components/ScrollReveal'
 import './index.css'
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [theme, setTheme] = useState('dark');
 
   useEffect(() => {
     // Simulate loading time
@@ -25,11 +26,28 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
+    document.body.classList.toggle('light-mode', savedTheme === 'light');
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    document.body.classList.toggle('light-mode', newTheme === 'light');
+    localStorage.setItem('theme', newTheme);
+  };
+
+  const particleColors = theme === 'dark'
+    ? ['#ffffff', '#08fdd8', '#ff2a6d']
+    : ['#0d0d0d', '#00a38d', '#d11e55'];
+
   return (
     <>
-      <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh', zIndex: 0, background: '#0d0d0d' }}>
+      <div className="particles-container">
         <Particles
-          particleColors={['#ffffff', '#08fdd8', '#ff2a6d']}
+          particleColors={particleColors}
           particleCount={300}
           particleSpread={10}
           speed={0.1}
@@ -42,16 +60,41 @@ function App() {
       <Loader loaded={!loading} />
       <div className={`app-content ${loading ? 'hidden' : 'visible'}`} style={{ opacity: loading ? 0 : 1, transition: 'opacity 1s ease-in-out' }}>
         <Cursor />
-        <ScrollToTop />
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Hero />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/certificates" element={<Certificates />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
+
+        <Layout theme={theme} toggleTheme={toggleTheme}>
+          <section id="home">
+            <Hero />
+          </section>
+
+          <ScrollReveal>
+            <section id="about">
+              <About />
+            </section>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <section id="skills">
+              <Skills />
+            </section>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <section id="projects">
+              <Projects />
+            </section>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <section id="certificates">
+              <Certificates />
+            </section>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <section id="contact">
+              <Contact />
+            </section>
+          </ScrollReveal>
         </Layout>
       </div>
     </>

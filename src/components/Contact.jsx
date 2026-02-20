@@ -80,7 +80,7 @@ const styles = {
         marginBottom: '20px'
     },
     description: {
-        color: '#ccc',
+        color: 'var(--text-secondary)',
         fontSize: '1.1rem',
         marginBottom: '40px',
         lineHeight: '1.6'
@@ -93,20 +93,19 @@ const styles = {
     input: {
         padding: '15px',
         borderRadius: '4px',
-        border: 'none',
-        background: '#222',
-        color: '#fff',
+        border: '1px solid var(--border-color)',
+        background: 'var(--input-bg)',
+        color: 'var(--text-color)',
         fontSize: '1rem',
         outline: 'none',
-        borderBottom: '2px solid transparent',
         transition: 'border-color 0.3s'
     },
     textarea: {
         padding: '15px',
         borderRadius: '4px',
-        border: 'none',
-        background: '#222',
-        color: '#fff',
+        border: '1px solid var(--border-color)',
+        background: 'var(--input-bg)',
+        color: 'var(--text-color)',
         fontSize: '1rem',
         outline: 'none',
         resize: 'vertical',

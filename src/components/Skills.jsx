@@ -47,11 +47,11 @@ const styles = {
         margin: '0 auto'
     },
     card: {
-        background: 'rgba(13, 13, 13, 0.8)',
+        background: 'var(--card-bg)',
         padding: '30px 20px',
         borderRadius: '8px',
-        boxShadow: '0 4px 6px rgba(0,0,0,0.3)',
-        border: '1px solid #333',
+        boxShadow: '0 4px 6px var(--shadow-color)',
+        border: '1px solid var(--border-color)',
         cursor: 'default',
         display: 'flex',
         flexDirection: 'column', // Stack icon and text
@@ -66,7 +66,7 @@ const styles = {
         marginBottom: '10px'
     },
     skillName: {
-        color: '#fff',
+        color: 'var(--text-color)',
         marginBottom: '0',
         textAlign: 'center',
         fontSize: '1.2rem',

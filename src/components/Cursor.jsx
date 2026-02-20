@@ -5,46 +5,44 @@ const Cursor = () => {
 
     useEffect(() => {
         const cursor = cursorRef.current;
-
         let mouseX = 0, mouseY = 0;
 
         const onMouseMove = (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
 
-            // Move main cursor
+            // Move main cursor head
             if (cursor) {
                 cursor.style.left = `${mouseX}px`;
                 cursor.style.top = `${mouseY}px`;
             }
 
-            // Create a drop
-            createDrop(mouseX, mouseY);
+            // Create trail dot
+            createTrailDot(mouseX, mouseY);
         };
 
-        const createDrop = (x, y) => {
-            const drop = document.createElement('div');
-            drop.classList.add('cursor-drop');
-            drop.style.left = `${x}px`;
-            drop.style.top = `${y}px`;
-            document.body.appendChild(drop);
+        const createTrailDot = (x, y) => {
+            const dot = document.createElement('div');
+            dot.classList.add('cursor-trail-dot');
+            dot.style.left = `${x}px`;
+            dot.style.top = `${y}px`;
+            document.body.appendChild(dot);
 
-            // Remove after animation completes (0.5s match CSS)
+            // Remove after animation
             setTimeout(() => {
-                drop.remove();
-            }, 500);
+                dot.remove();
+            }, 500); // 0.5s match CSS animation
         };
 
         document.addEventListener('mousemove', onMouseMove);
 
         return () => {
             document.removeEventListener('mousemove', onMouseMove);
-            // Cleanup any remaining drops
-            document.querySelectorAll('.cursor-drop').forEach(el => el.remove());
+            document.querySelectorAll('.cursor-trail-dot').forEach(el => el.remove());
         };
     }, []);
 
-    return <div className="cursor" ref={cursorRef}></div>;
+    return <div className="cursor-head" ref={cursorRef}></div>;
 };
 
 export default Cursor;

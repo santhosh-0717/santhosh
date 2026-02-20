@@ -81,7 +81,7 @@ const styles = {
     paragraph: {
         fontSize: '1.2rem',
         lineHeight: '1.6',
-        color: '#ccc'
+        color: 'var(--text-secondary)'
     }
 };
 
