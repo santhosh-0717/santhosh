@@ -1012,3 +1012,175 @@ input:checked~.slider .slider-icon {
 html {
   scroll-behavior: smooth;
 }
+
+/* Additional Responsive Utility Classes for App.jsx Components */
+.section-wrapper {
+  padding: 100px 100px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.section-wrapper-col {
+  padding: 100px 50px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: transparent;
+}
+
+.about-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  gap: 50px;
+}
+
+.about-text {
+  flex: 1;
+  text-align: left;
+  z-index: 10;
+}
+
+.about-image-ctr {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-img {
+  width: 350px;
+  height: 350px;
+  border-radius: 20px;
+  border: 3px solid var(--primary-color);
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(8, 253, 216, 0.3);
+  transform: rotate(5deg);
+  transition: transform 0.3s;
+}
+
+.about-img:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  gap: 50px;
+  margin: 0 auto;
+}
+
+.contact-info {
+  flex: 1;
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+.contact-form {
+  flex: 1.5;
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px var(--shadow-color);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .section-wrapper {
+    padding: 80px 50px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .section-wrapper,
+  .section-wrapper-col {
+    padding: 80px 20px;
+  }
+
+  /* About */
+  .about-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  .about-img {
+    width: 250px;
+    height: 250px;
+  }
+
+  /* Skills */
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+  }
+
+  /* Projects */
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+  }
+
+  /* Certificates */
+  .cert-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Contact */
+  .contact-row {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .contact-info,
+  .contact-form {
+    width: 100%;
+    padding: 25px;
+    box-sizing: border-box;
+  }
+}

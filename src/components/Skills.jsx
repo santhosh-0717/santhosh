@@ -13,9 +13,9 @@ const Skills = () => {
     ];
 
     return (
-        <div style={styles.container}>
+        <div className="section-wrapper-col">
             <h2 style={styles.heading}>Skills</h2>
-            <div style={styles.grid}>
+            <div className="skills-grid">
                 {skills.map((skill, index) => (
                     <div key={index} style={styles.card} className="skill-card animate-fade-up">
                         <img src={skill.icon} alt={skill.name} style={styles.skillIcon} />
@@ -28,26 +28,12 @@ const Skills = () => {
 };
 
 const styles = {
-    container: {
-        padding: '100px 50px',
-        background: 'transparent',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center'
-    },
+    // Keep remaining static styles
     heading: {
         fontSize: '3rem',
         color: 'var(--primary-color)',
         marginBottom: '50px',
         textAlign: 'center'
-    },
-    grid: {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', // Reduced min-width
-        gap: '30px',
-        maxWidth: '1000px',
-        margin: '0 auto'
     },
     card: {
         background: 'var(--card-bg)',

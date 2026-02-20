@@ -202,7 +202,7 @@
 .hamburger-line {
     width: 16px;
     height: 2px;
-    background: var(--pill-bg, #fff);
+    background: var(--pill-text, #fff);
     border-radius: 1px;
     transition: all 0.01s ease;
     transform-origin: center;

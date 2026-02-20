@@ -40,9 +40,9 @@ const Certificates = () => {
     };
 
     return (
-        <div style={styles.container}>
+        <div className="section-wrapper-col">
             <h2 style={styles.heading}>My Certificates</h2>
-            <div style={styles.grid}>
+            <div className="cert-grid">
                 {certificates.map(cert => (
                     <div key={cert.id} style={styles.card} className="certificate-card">
                         <div style={styles.cardHeader}>
@@ -99,27 +99,13 @@ const Certificates = () => {
 };
 
 const styles = {
-    container: {
-        padding: '100px 50px',
-        minHeight: '100vh',
-        background: 'transparent',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center'
-    },
+    // Keep remaining static styles
     heading: {
         fontSize: '3rem',
         color: 'var(--text-color)',
         marginBottom: '50px',
         textAlign: 'center',
         fontWeight: 'bold'
-    },
-    grid: {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))',
-        gap: '30px',
-        maxWidth: '1400px',
-        margin: '0 auto'
     },
     card: {
         background: 'var(--card-bg)',

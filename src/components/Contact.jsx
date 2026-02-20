@@ -39,7 +39,7 @@ const Contact = () => {
     };
 
     return (
-        <div style={styles.container}>
+        <div className="section-wrapper-col">
             <div style={styles.content} className="animate-fade-up delay-1">
                 <h2 style={styles.heading}>Get In Touch</h2>
                 <p style={styles.description} className="animate-fade-up delay-2">
@@ -79,14 +79,7 @@ const Contact = () => {
 };
 
 const styles = {
-    container: {
-        minHeight: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: '100px 20px',
-        textAlign: 'center'
-    },
+    // Keep remaining static styles
     content: {
         maxWidth: '600px',
         width: '100%'

@@ -33,9 +33,9 @@ const Projects = () => {
     ];
 
     return (
-        <div style={styles.container}>
+        <div className="section-wrapper-col">
             <h2 style={styles.heading}>My Projects</h2>
-            <div style={styles.grid}>
+            <div className="projects-grid">
                 {projects.map(project => (
                     <div key={project.id} style={styles.card} className="project-card">
                         <div style={{ ...styles.image, backgroundImage: `url(${project.image})` }} className="project-image"></div>
@@ -66,24 +66,13 @@ const Projects = () => {
 };
 
 const styles = {
-    container: {
-        padding: '100px 50px',
-        minHeight: '100vh',
-        background: 'transparent'
-    },
+    // Keep remaining static styles
     heading: {
         fontSize: '3rem',
         color: 'var(--text-color)',
         marginBottom: '50px',
         textAlign: 'center',
         fontWeight: 'bold'
-    },
-    grid: {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
-        gap: '40px',
-        maxWidth: '1400px',
-        margin: '0 auto'
     },
     card: {
         background: 'var(--card-bg)',

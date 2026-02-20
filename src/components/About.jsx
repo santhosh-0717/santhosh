@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 
 const About = () => {
     return (
-        <div id="about" style={styles.about}>
-            <div style={styles.container}>
-                <div style={styles.textSection}>
+        <div id="about" className="section-wrapper">
+            <div className="about-row">
+                <div className="about-text">
                     <h2 style={styles.heading} className="animate-fade-up delay-1">About Me</h2>
                     <p style={styles.paragraph} className="animate-fade-up delay-2">
                         I'm a passionate Full Stack Developer located in India.
@@ -24,13 +24,11 @@ const About = () => {
                     </a>
                 </div>
 
-                <div style={styles.imageContainer} className="animate-fade-up delay-3">
+                <div className="about-image-ctr animate-fade-up delay-3">
                     <img
                         src="https://avatars.githubusercontent.com/u/211788246?s=400&u=1f5f074476c7de26cdae5cd5935b7bb8449d2c4f&v=4"
                         alt="Profile"
-                        style={styles.profileImage}
-                        onMouseEnter={(e) => e.target.style.transform = 'rotate(0deg) scale(1.05)'}
-                        onMouseLeave={(e) => e.target.style.transform = 'rotate(5deg)'}
+                        className="about-img"
                     />
                 </div>
             </div>
@@ -39,43 +37,7 @@ const About = () => {
 };
 
 const styles = {
-    about: {
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '0 100px',
-        background: 'transparent',
-    },
-    container: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        maxWidth: '1200px',
-        width: '100%',
-        gap: '50px'
-    },
-    textSection: {
-        flex: 1,
-        textAlign: 'left', // Text align left
-        zIndex: 10
-    },
-    imageContainer: {
-        flex: 1,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    profileImage: {
-        width: '350px', // Slightly larger
-        height: '350px',
-        borderRadius: '20px', // Rounded rectangle instead of circle
-        border: '3px solid var(--primary-color)',
-        objectFit: 'cover',
-        boxShadow: '0 0 20px rgba(8, 253, 216, 0.3)',
-        transform: 'rotate(5deg)', // Slight tilt for style
-        transition: 'transform 0.3s'
-    },
+    // Keep remaining static styles
     heading: {
         fontSize: '4rem',
         color: 'var(--secondary-color)',
