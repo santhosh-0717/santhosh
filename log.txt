@@ -1,0 +1,4 @@
+﻿0942aa6be584eabe79dd426d3fbc3971ca555f18 feat: improve mobile responsiveness across components and navigation
+48b41621dbf8c3df1c0d0544c69acc084b3978c6 Implement PillNav, restore SplashCursor, and update theme
+73405f9e65043f20bf3f04c29fdee58cd69bed05 Update projects content and fix certificate card highlighting
+a16825cbb5046a04d4bfebc8fa960a0ad835ad34 first commit
