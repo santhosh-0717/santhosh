@@ -82,7 +82,8 @@ const styles = {
     // Keep remaining static styles
     content: {
         maxWidth: '600px',
-        width: '100%'
+        width: '100%',
+        textAlign: 'center'
     },
     heading: {
         fontSize: '3rem',
