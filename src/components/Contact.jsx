@@ -5,20 +5,37 @@ const Contact = () => {
     const form = useRef();
     const [status, setStatus] = useState('');
 
-    const sendEmail = (e) => {
+    const sendEmail = async (e) => {
         e.preventDefault();
         setStatus('Sending...');
 
-        // Replace with your actual service_id, template_id, and public_key
-        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
-            .then((result) => {
-                console.log(result.text);
+        const formData = new FormData(form.current);
+        const data = {
+            name: formData.get('user_name'),
+            email: formData.get('user_email'),
+            message: formData.get('message')
+        };
+
+        try {
+            const response = await fetch('http://localhost:5000/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
                 setStatus('Message Sent! I will get back to you soon.');
                 e.target.reset();
-            }, (error) => {
-                console.log(error.text);
+                setTimeout(() => setStatus(''), 3000);
+            } else {
                 setStatus('Failed to send message.');
-            });
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            setStatus('Failed to connect to the server.');
+        }
     };
 
     return (
@@ -63,7 +80,7 @@ const Contact = () => {
 
 const styles = {
     container: {
-        minHeight: '80vh',
+        minHeight: '100vh',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

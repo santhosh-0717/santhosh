@@ -13,6 +13,8 @@ import Particles from './components/Particles'
 import ScrollReveal from './components/ScrollReveal'
 import './index.css'
 
+// ... (keep component imports same)
+
 function App() {
   const [loading, setLoading] = useState(true);
   const [theme, setTheme] = useState('dark');
@@ -102,3 +104,4 @@ function App() {
 }
 
 export default App
+

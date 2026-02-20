@@ -236,7 +236,9 @@ a:hover {
 }
 
 .resume-btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 20px;
   padding: 12px 24px;
   background: transparent;
@@ -769,24 +771,46 @@ input:checked~.slider .slider-icon {
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
-  padding: 10px 24px;
-  border-radius: 30px;
+  padding: 10px 15px;
   font-size: 0.95rem;
   letter-spacing: 0.5px;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 5px;
+  left: 50%;
+  background-color: var(--primary-color);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px var(--primary-color);
 }
 
 .nav-link:hover {
   color: var(--primary-color);
-  background: rgba(255, 255, 255, 0.05);
+  background: transparent;
   text-shadow: 0 0 5px rgba(8, 253, 216, 0.4);
 }
 
+.nav-link:hover::after {
+  width: 80%;
+}
+
 .nav-link.active {
-  background: rgba(255, 255, 255, 0.1);
+  background: transparent;
   color: var(--primary-color);
-  box-shadow: 0 0 15px rgba(8, 253, 216, 0.2);
+  box-shadow: none;
   font-weight: 600;
-  border: 1px solid rgba(8, 253, 216, 0.1);
+  border: none;
+  text-shadow: 0 0 10px rgba(8, 253, 216, 0.6);
+}
+
+.nav-link.active::after {
+  width: 80%;
 }
 
 .light-mode .navbar {
@@ -799,14 +823,14 @@ input:checked~.slider .slider-icon {
 }
 
 .light-mode .nav-link:hover {
-  background: rgba(0, 0, 0, 0.05);
+
   text-shadow: none;
 }
 
 .light-mode .nav-link.active {
-  background: rgba(0, 0, 0, 0.05);
-  box-shadow: 0 0 10px rgba(0, 163, 141, 0.2);
-  border: 1px solid rgba(0, 163, 141, 0.2);
+  background: transparent;
+  box-shadow: none;
+  border: none;
 }
 
 .theme-toggle {

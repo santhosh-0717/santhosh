@@ -101,8 +101,11 @@ const Certificates = () => {
 const styles = {
     container: {
         padding: '100px 50px',
-        minHeight: '60vh',
-        background: 'transparent'
+        minHeight: '100vh',
+        background: 'transparent',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
     },
     heading: {
         fontSize: '3rem',

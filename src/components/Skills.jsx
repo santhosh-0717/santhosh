@@ -31,7 +31,10 @@ const styles = {
     container: {
         padding: '100px 50px',
         background: 'transparent',
-        minHeight: '60vh'
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
     },
     heading: {
         fontSize: '3rem',

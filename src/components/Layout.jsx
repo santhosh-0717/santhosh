@@ -1,45 +1,58 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Link } from 'react-scroll';
 
 import ScrollProgress from './ScrollProgress';
+import PillNav from './PillNav';
+import SplashCursor from './SplashCursor';
 
 const Layout = ({ children, theme, toggleTheme }) => {
-    const [activeSection, setActiveSection] = useState('home');
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const sections = document.querySelectorAll('section');
-            let current = 'home';
-
-            sections.forEach((section) => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                // Offset for fixed navbar + a bit of buffer
-                if (window.scrollY >= sectionTop - 150) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            setActiveSection(current);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        // Trigger once on mount to set initial state
-        handleScroll();
-
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    const navProps = theme === 'dark' ? {
+        baseColor: "rgba(29, 29, 29, 0.8)", // Glass effect
+        pillColor: "transparent",
+        hoveredPillTextColor: "#08fdd8", // Teal/Green
+        pillTextColor: "#ffffff", // White text
+        activePillColor: "rgba(8, 253, 216, 0.15)", // Green tint, slightly stronger
+        activeTextColor: "#08fdd8",
+        hoverPillColor: "rgba(8, 253, 216, 0.15)",
+        mobileBgColor: "rgba(29, 29, 29, 0.95)", // More opaque for menu
+        logoColor: "#08fdd8",
+        theme: "dark"
+    } : {
+        baseColor: "#ffffff",
+        pillColor: "transparent",
+        hoveredPillTextColor: "#08fdd8",
+        pillTextColor: "#4b5563",
+        activePillColor: "rgba(8, 253, 216, 0.1)",
+        activeTextColor: "#08fdd8",
+        hoverPillColor: "rgba(8, 253, 216, 0.1)",
+        mobileBgColor: "#ffffff",
+        logoColor: "#08fdd8",
+        theme: "light"
+    };
 
     return (
         <div className="layout">
+            <SplashCursor />
             <ScrollProgress />
-            <nav className="navbar">
-                <a href="#home" className={`nav-link ${activeSection === 'home' ? 'active' : ''}`}>Home</a>
-                <a href="#about" className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}>About</a>
-                <a href="#skills" className={`nav-link ${activeSection === 'skills' ? 'active' : ''}`}>Skills</a>
-                <a href="#projects" className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`}>Projects</a>
-                <a href="#certificates" className={`nav-link ${activeSection === 'certificates' ? 'active' : ''}`}>Certificates</a>
-                <a href="#contact" className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}>Contact</a>
-            </nav>
+            <PillNav
+                items={[
+                    { label: 'Home', href: 'home' },
+                    { label: 'About', href: 'about' },
+                    { label: 'Skills', href: 'skills' },
+                    { label: 'Projects', href: 'projects' },
+                    { label: 'Certificates', href: 'certificates' },
+                    { label: 'Contact', href: 'contact' }
+                ]}
+                activeHref="home" // Initial active
+                className="custom-nav"
+                ease="power2.easeOut"
+                initialLoadAnimation
+                {...navProps}
+            />
+            {/* Keeping theme toggle separate or integrated? The mockup didn't show it inside PillNav. 
+                I will keep the theme toggle below for now as it was outside Navbar previously. 
+                Wait, the previous Navbar contained the links. The theme toggle was separate in Layout line 18. 
+                So I just replaced the Navbar component. */}
             <div className="theme-toggle-wrapper">
                 <label className="theme-switch" htmlFor="checkbox">
                     <input
