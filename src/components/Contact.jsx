@@ -17,10 +17,11 @@ const Contact = () => {
         };
 
         try {
-            const response = await fetch('http://localhost:5000/api/contact', {
+            const response = await fetch('https://formsubmit.co/ajax/gsanthosh037@gmail.com', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
                 body: JSON.stringify(data),
             });
